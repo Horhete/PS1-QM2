@@ -37,13 +37,7 @@ nkap   = length(kap);            % number of grid points
 %  rules and the value function at the optimum 
 
 
-for j=1:N
-        for i=1:nkap              
-            cons(j,i) = s(j)*wage + r*kap(i);
-            utilm(j,i) = (cons(j,i).^(1-mu))/(1-mu);
-            v(j,i) = utilm(j,i)/(1-beta);
-        end
-end
+v   = zeros(N,nkap);
 
 utilm = 190*zeros(N,nkap,nkap);
 
@@ -83,7 +77,7 @@ while test > 0.001
         tv = vh;
     end
 
-    test=max(max(abs(tv-v)));
+    criterion=max(max(abs(tv-v)));
     v=tv;
     tdecis1 = tdecis';
 end

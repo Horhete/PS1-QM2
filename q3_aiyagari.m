@@ -1,5 +1,5 @@
 
-function [meank] = q2_aiyagari(r)
+function [meank] = q3_aiyagari(r)
 % aiyagari.m is a function file which computes aggregate savings 
 % given aggregate interest rate in Aiyagari's QJE 1994 paper
 
