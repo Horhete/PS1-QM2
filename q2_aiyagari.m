@@ -76,7 +76,7 @@ while test > 0.001
     while iter > 30 && howard_criterion > 0.1
         for j = 1:N
             for i = 1:nkap
-                vh(j,i)=(((s(j)*wage + (1+r)*kap(i) - kap(tdecis(j,i)))^(1-mu)-1)/(1-mu))+beta*prob(j,:)*vh(:,tdecis(j,i));
+                vh(j,i)=(((s(j)*wage + (1+r)*kap(i) - kap(tdecis(j,i)))^(1-mu))/(1-mu))+beta*prob(j,:)*vh(:,tdecis(j,i));
             end
         end
         howard_criterion=max(max(abs(vh-tv)));
