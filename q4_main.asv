@@ -67,7 +67,7 @@ while (testr>0.001)
     
     r0 = 0.5*(maxrate-minrate)+minrate;%guess for interest rate
     k0=((r0+delta)/(alpha*A*labor^(1-alpha)))^(1/(alpha-1));%capital demand for that guess
-    k1= q2_aiyagari(r0); %calculating asset supply
+    k1= q4_aiyagari(r0); %calculating asset supply
     r1=alpha*A*max(0.001,k1)^(alpha-1)*labor^(1-alpha)-delta;%which interest rate implies that 
 
     %capital demand equals this value of capital supply 
@@ -75,10 +75,10 @@ while (testr>0.001)
     [r0 r1]
      
     testr=abs(r1-r0);    
-    
+    r0=0.9*r0 + 0.1*r1;
     %updating the interest rate
-    if k1>k0
-        maxrate=r0;
+%    if k1>k0
+%        maxrate=r0;
     else
         minrate=r0;
     end
