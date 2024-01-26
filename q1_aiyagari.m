@@ -40,7 +40,7 @@ nkap   = length(kap);            % number of grid points
 for j=1:N
         for i=1:nkap              
             cons(j,i) = s(j)*wage + r*kap(i);
-            utilm(j,i) = (cons(j,i).^(1-mu))/(1-mu);
+            utilm(j,i) = (cons(j,i).^(1-mu)-1)/(1-mu);
             v(j,i) = utilm(j,i)/(1-beta);
         end
 end
@@ -65,7 +65,7 @@ while test > 0.001
         for i=1:nkap% each asset level a_t             
             util=reshape(utilm(j,i,:),nkap,1); 
             vint = util' + beta*prob(j,:)*v;  % utility given j, i, for all possible k' next period       
-           [tv(j,i),tdecis(j,i)] = max(vint);   %what is the optimal asset choice on the grid
+           [tv(j,i),tdecis(j,i)] = max(vint);   %what is the optimal asset choice on the grid max and argmax
         end
     end
     test=max(max(abs(tv-v)));

@@ -40,7 +40,7 @@ nkap   = length(kap);            % number of grid points
 for j=1:N
         for i=1:nkap              
             cons(j,i) = s(j)*wage + r*kap(i);
-            utilm(j,i) = (cons(j,i).^(1-mu))/(1-mu);
+            utilm(j,i) = (cons(j,i).^(1-mu)-1)/(1-mu);
             v(j,i) = utilm(j,i)/(1-beta);
         end
 end
