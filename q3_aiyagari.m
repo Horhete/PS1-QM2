@@ -117,7 +117,8 @@ while err_sim>1e-4
             end
         end
     end
-    
+    %random distribution of shocks to each hh un tirage aleatoire pour
+    %chacun
     zsim=zsim_prime;  % value of z-shock at beginning of time t
     
     for i=1:nsim

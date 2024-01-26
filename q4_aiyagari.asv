@@ -95,7 +95,6 @@ display('done with VF iteration')
 % Compute the measure
 
 %With matrix computations
-
 Q = sparse(N*nkap,N*nkap);
 for i=1:nkap
     for j=1:N      
